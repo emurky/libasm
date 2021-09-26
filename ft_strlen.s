@@ -3,13 +3,13 @@ global	_ft_strlen
 
 _ft_strlen:
 	xor		rax, rax
-	jmp		count
+	jmp		.count
 
-count:
+.count:
 	cmp		BYTE [rdi + rax], 0
-	je		return
+	je		.return
 	inc		rax
-	jmp		count
+	jmp		.count
 
-return:
+.return:
 	ret

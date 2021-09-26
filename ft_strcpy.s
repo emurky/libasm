@@ -5,9 +5,9 @@ _ft_strcpy:
 	mov		rax, rdi
 	xor		rcx, rcx
 loop:
-	mov		al, byte[rsi + rcx]
-	mov		byte[rdi + rcx], al
+	mov		dl, byte[rsi + rcx]
+	mov		byte[rax + rcx], dl
 	inc		rcx
-	cmp		al, 0
+	cmp		dl, 0
 	jne		loop
 	ret

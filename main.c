@@ -3,8 +3,9 @@
 #include	<fcntl.h>
 #include	<unistd.h>
 #include	<string.h>
+#include	<stdlib.h>
 
-#define BUFFER_SIZE		42
+#define BUFFER_SIZE		78
 #define STRCMP_STRS		"abc", "c"
 
 extern int	errno;
@@ -14,6 +15,7 @@ int				ft_write(int fd, void *buf, unsigned int nbyte);
 int				ft_read(int fd, void *buf, unsigned int nbyte);
 char			ft_strcpy(char *dest, char *src);
 int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strdup(char *str);
 
 int	main(void)
 {
@@ -41,4 +43,9 @@ int	main(void)
 	ft_write(1, buffer, ft_strlen(buffer));
 
 	printf("%d strcmp ret %d ft_strcmp ret\n", strcmp(STRCMP_STRS), ft_strcmp(STRCMP_STRS));
+
+	char	*malloced = ft_strdup(buffer);
+	ft_write(1, malloced, ft_strlen(malloced));
+	free(malloced);
+
 }

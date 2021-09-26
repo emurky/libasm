@@ -2,21 +2,22 @@ section	.text
 global	_ft_strcmp
 
 _ft_strcmp:
-	mov		rax, 0
-	mov		rcx, 0
+	xor		rax, rax
+	xor		rcx, rcx
+	xor		rdx, rdx
 
-loop:
+.loop:
 	mov		cl, byte[rdi + rax]
 	mov		dl, byte[rsi + rax]
 	inc		rax
 	cmp		cl, dl
-	jne		substract
+	jne		.substract
 	cmp		cl, 0
-	jne		loop
+	jne		.loop
 	xor		rax, rax
 	ret
 
-substract
+.substract
 	sub		rcx, rdx
 	mov		rax, rcx
 	ret

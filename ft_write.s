@@ -5,10 +5,10 @@ extern	___error
 _ft_write:
 	mov		eax, 0x2000004
 	syscall
-	jc		error
+	jc		.error
 	ret
 
-error:
+.error:
 	push	rax
 	call	___error
 	pop		qword[rax]
