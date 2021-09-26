@@ -9,6 +9,7 @@ extern int	errno;
 unsigned int	ft_strlen(char *str);
 int				ft_write(int fd, void *buf, unsigned int nbyte);
 int				ft_read(int fd, void *buf, unsigned int nbyte);
+char			ft_strcpy(char *dest, char *src);
 
 int	main(void)
 {
@@ -32,4 +33,6 @@ int	main(void)
 	perror("ft_read test");
 	ft_write(1, "\n", 1);
 
+	ft_strcpy(buffer, "salam aleykum\n");
+	ft_write(1, buffer, ft_strlen(buffer));
 }
