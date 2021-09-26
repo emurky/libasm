@@ -2,7 +2,7 @@ SRCS				=	ft_strlen.s \
 						ft_write.s \
 						ft_read.s \
 						ft_strcpy.s \
-						# ft_strcmp.s \
+						ft_strcmp.s \
 						ft_strdup.s
 
 
@@ -12,7 +12,7 @@ NAME				= libasm.a
 
 CC 					= gcc
 RM 					= rm -f
-CFLAGS				= -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS				= -Wall -Wextra -Werror -g -fsanitize=address
 
 AS					= nasm
 ASFLAGS				= -f macho64
