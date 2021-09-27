@@ -11,7 +11,7 @@ extern int	errno;
 
 size_t			ft_strlen(const char *str);
 ssize_t			ft_write(int fd, void *buf, unsigned int nbyte);
-int				ft_read(int fd, void *buf, unsigned int nbyte);
+ssize_t			ft_read(int fd, void *buf, unsigned int nbyte);
 char			ft_strcpy(char *dest, char *src);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(char *str);
@@ -19,7 +19,6 @@ char			*ft_strdup(char *str);
 int	main(void)
 {
 	int			fd;
-	char		c;
 	int			ret_read;
 	int			ret_ft_read;
 	char		*strdupped = NULL;
@@ -56,9 +55,9 @@ int	main(void)
 	printf("\n******************** FT_STRCMP CHECK ********************\n");
 	printf("%4d strcmp %4d ft_strcmp with empty strings\n", 
 		strcmp("", ""), ft_strcmp("", ""));
-	printf("%4d strcmp %4d ft_strcmp with empty string as a first arg\n", 
+	printf("%4d strcmp %4d ft_strcmp with an empty string as a first arg\n",
 		strcmp("", "abc"), ft_strcmp("", "abc"));
-	printf("%4d strcmp %4d ft_strcmp with empty string as a second arg\n", 
+	printf("%4d strcmp %4d ft_strcmp with an empty string as a second arg\n",
 		strcmp("xyz", ""), ft_strcmp("xyz", ""));
 	printf("%4d strcmp %4d ft_strcmp with equal strings\n", 
 		strcmp(buffer, buffer), ft_strcmp(buffer, buffer));
@@ -114,22 +113,16 @@ int	main(void)
 	errno = 0;
 	ret_ft_read = ft_read(-21, buffer, BUFFER_SIZE);
 	perror("Errno after bad fd ft_read: ");
-
 	printf("Return values: %4d read %4d ft_read\n\n", ret_read, ret_ft_read);
-
-	printf("Do you want to delete \"test.txt\"? If yes, just type \'y\'\n");
-	read(0, &c, 1);
-	if (c == 'y')
-		remove("test.txt");
 	close(fd);
 
 
 	printf("\n******************** FT_STRDUP CHECK ********************\n");
 	strdupped = strdup("");
-	printf("Strdup with empty string: \"%s\"\n", strdupped);
+	printf("Strdup with an empty string: \"%s\"\n", strdupped);
 	free(strdupped);
 	strdupped = ft_strdup("");
-	printf("Ft_strdup with empty string: \"%s\"\n\n", strdupped);
+	printf("Ft_strdup with an empty string: \"%s\"\n\n", strdupped);
 	free(strdupped);
 
 	fd = open("main.c", O_RDONLY);

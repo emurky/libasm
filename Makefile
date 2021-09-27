@@ -29,7 +29,7 @@ test:				all
 bonus:				all
 
 clean:
-					$(RM) $(OBJS) main.o test
+					$(RM) $(OBJS) main.o test test.txt
 
 fclean:				clean
 					$(RM) $(NAME)
@@ -38,7 +38,7 @@ re:					fclean all
 
 
 sc:
-					rm -rf *.o *.a */*.o */*.a test
+					rm -rf *.o *.a */*.o */*.a test test.txt
 
 .PHONY:				all clean fclean re bonus sc
 
