@@ -132,4 +132,5 @@ int	main(void)
 	printf("Printing a very long string with ft_strdup:\n%s", strdupped);
 	free(strdupped);
 	close(fd);
+	return (0);
 }
