@@ -12,7 +12,7 @@ NAME				= libasm.a
 
 CC 					= gcc
 RM 					= rm -f
-CFLAGS				= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS				= -Wall -Wextra -Werror #-g -fsanitize=address
 
 AS					= nasm
 ASFLAGS				= -f macho64

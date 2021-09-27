@@ -17,7 +17,7 @@ _ft_strcmp:
 	xor		rax, rax
 	ret
 
-.substract
+.substract:
 	sub		rcx, rdx
 	mov		rax, rcx
 	ret
